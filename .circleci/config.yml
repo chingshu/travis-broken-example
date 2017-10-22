@@ -8,4 +8,4 @@ jobs:
      
      steps:
        - checkout
-       - run: PHPUnit Test.php
+       - run: echo "hello world"
