@@ -2,7 +2,20 @@ language: php
 php:
   - 5.5
   - 5.4
+  
+insatll:
+  - sudo apt install git
+  - wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.33.7/install.sh | bash
+  - source ~/.bashrc
+  - nvm install node
+  - sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 0C49F3730359A14518585931BC711F9BA15703C6
+  - sudo apt-get update
+  - yes | sudo apt-get install mongodb-org
+  - sudo systemctl start mongod
+  - yes | sudo perl -MCPAN -e'install "LWP::Simple"' 
+
 script: phpunit Test.php
+
 notifications:
   email:
     on_success: never # default: change
